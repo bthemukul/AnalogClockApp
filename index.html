@@ -1,5 +1,4 @@
 <!DOCTYPE HTML>
-
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -8,10 +7,9 @@
     <meta name="author" content="Mukul Bisen">
 </head>
     
-    
 <body>
       <div class="clock">
-            <div class="clock face">
+            <div class="clock-face">
                 <div class="hand hour-hand"></div>
                 <div class="hand min-hand"></div>
                 <div class="hand second-hand"></div>
@@ -20,13 +18,12 @@
     
             <style>
             html {
-            background: #d60cdd;
+            background:rgb(58, 47, 47);
             background-size: cover;
-            font-family: 'Times New Roman', Times, serif;
+            font-family: 'Times New Roman';
             text-align: center;
-            font-size: 40px ;
+            font-size: 10px ;
             }
-
             body{
             font-size: 2rem;
             display: flex;
@@ -34,30 +31,26 @@
             min-height: 100vh;
             align-items: center;
             }
-
             .clock{
-
-                width: 20rem;
-                height: 20rem;
-                border: 10px solid white;
+                width: 30rem;
+                height: 30rem;
+                border: 30px solid white;
                 border-radius: 50%;
                 margin: 50px auto;
                 position: relative;
                 padding: 2rem;
                 box-shadow: 
                 0 0 0 4px rgba(0,0,0,1),
-                inset 0 0 0 3px #EFEFEF,
+                inset 0 0 0 3px black,
                 inset 0 0 10px black,
                 0 0 10px rgba(0,0,0,2);
             }
-
             .clock-face{
                 position: relative;
                 height: 100%;
                 width: 100%;
                 transform: translateY(-3px);
             }
-
             .hand{
             width: 50%;
             height: 6px;
@@ -67,13 +60,11 @@
             transform-origin: 100%;
             transform: rotate(90deg);
             transition: all 0.05s;
-            transition-timing-function: ease-in-out(0.42,0,0.58,1);
+            transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
             }
-
             </style>
     
         <script>
-
             const secondHand = document.querySelector('.second-hand');
             const minsHand = document.querySelector('.min-hand');
             const hourHand = document.querySelector('.hour-hand');
@@ -85,11 +76,9 @@
                 const seconds = now.getSeconds();
                 const secDegrees = ((seconds/60)*360) + 90;
                 secondHand.style.transform = `rotate(${secDegrees}deg)`;
-
                 const mins = now.getMinutes();
                 const minsDegrees = ((mins/60)*360)+90;
                 minsHand.style.transform = `rotate(${minsDegrees}deg)`;
-
                 const hour = now.hour();
                 const hourDegrees = ((hour/12)*360)+90;
                 hourHand.style.transform = `rotate(${hourDegrees}deg)`;
